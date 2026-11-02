@@ -1,0 +1,901 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Something for Juju 💌</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --sage: #d4e2ce;
+  --sage-dark: #526d4d;
+  --lavender: #e5def0;
+  --purple: #788f70;
+  --plum: #40583d;
+  --cream: #f5f7ef;
+  --white: #ffffff;
+  --text: #465344;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(ellipse at top left, #e2eddb, transparent 52%),
+    radial-gradient(ellipse at bottom right, #dce8d5, transparent 55%),
+    #e8efe3;
+  overflow-x: hidden;
+}
+
+button { font: inherit; }
+
+h1, h2, h3, p { margin-top: 0; }
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+}
+
+.hidden { display: none !important; }
+
+#floatingDecor {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.float {
+  position: absolute;
+  bottom: -50px;
+  opacity: .35;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0) rotate(0deg); opacity: 0; }
+  15% { opacity: .4; }
+  to { transform: translateY(-110vh) rotate(35deg); opacity: 0; }
+}
+
+/* Welcome screen */
+
+#welcome {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(circle at 20% 20%, #d9e7d2, transparent 52%),
+    radial-gradient(circle at 80% 80%, #e5def0, transparent 55%),
+    #e8efe3;
+  transition: opacity .8s ease, visibility .8s ease;
+}
+
+#welcome.fade {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.welcome-card {
+  max-width: 470px;
+  width: 100%;
+  text-align: center;
+  padding: 42px 25px;
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(144,120,170,.18);
+  border-radius: 28px;
+  box-shadow: 0 15px 50px rgba(83,68,101,.09);
+  animation: appear 1s ease;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.flower {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.welcome-card h1 {
+  color: var(--plum);
+  font-size: clamp(32px, 8vw, 45px);
+  margin-bottom: 12px;
+}
+
+.welcome-card p {
+  color: #77717d;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.primary-btn {
+  border: none;
+  background: #718a69;
+  color: white;
+  border-radius: 30px;
+  padding: 14px 27px;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: .25s;
+  box-shadow: 0 6px 18px rgba(144,120,170,.22);
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+  background: #526d4d;
+}
+
+/* Main page */
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 1050px;
+  margin: auto;
+  padding: 35px 20px 60px;
+}
+
+header {
+  text-align: center;
+  padding: 42px 10px 25px;
+}
+
+.eyebrow {
+  color: var(--sage-dark);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+header h1 {
+  color: var(--plum);
+  font-size: clamp(37px, 8vw, 55px);
+  margin: 12px 0;
+}
+
+header p {
+  color: #77717d;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.header-flower {
+  font-size: 30px;
+  margin: 12px 0;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--plum);
+  font-size: 27px;
+  margin: 30px 0 8px;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #89838e;
+  font-size: 12px;
+  margin-bottom: 25px;
+}
+
+.progress-card {
+  max-width: 550px;
+  margin: 20px auto 35px;
+  padding: 18px 20px;
+  background: rgba(255,255,255,.7);
+  border-radius: 18px;
+  border: 1px solid #e8e1ed;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--sage-dark);
+  margin-bottom: 10px;
+}
+
+.progress-track {
+  height: 7px;
+  border-radius: 20px;
+  background: #eee9f1;
+  overflow: hidden;
+}
+
+#progressBar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #a7bea0, #a38bbd);
+  border-radius: 20px;
+  transition: width .5s;
+}
+
+/* Letter grid */
+
+.letter-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.letter {
+  position: relative;
+  min-height: 145px;
+  padding: 20px 10px;
+  border: 1px solid rgba(144,120,170,.14);
+  border-radius: 19px;
+  cursor: pointer;
+  transition: transform .25s, box-shadow .25s;
+  text-align: center;
+  color: var(--plum);
+  background: rgba(255,255,255,.75);
+}
+
+.letter:nth-child(4n+1),
+.letter:nth-child(4n+3) {
+  background: #dce8d5;
+}
+
+.letter:nth-child(4n+2),
+.letter:nth-child(4n+4) {
+  background: #f3f4eb;
+}
+
+.letter:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 25px rgba(83,68,101,.12);
+}
+
+.letter-icon {
+  display: block;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.letter-number {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  opacity: .65;
+  margin-bottom: 5px;
+}
+
+.letter-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.letter.opened::after {
+  content: "✓";
+  position: absolute;
+  top: 9px;
+  right: 12px;
+  color: var(--sage-dark);
+  font-size: 13px;
+}
+
+.letter.locked {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+.letter.locked:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Buttons */
+
+.action-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 30px 0;
+}
+
+.secondary-btn {
+  border: 1px solid #d9cde5;
+  background: rgba(255,255,255,.7);
+  color: var(--plum);
+  border-radius: 25px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.secondary-btn:hover {
+  background: var(--lavender);
+  transform: translateY(-2px);
+}
+
+/* Our little corner */
+
+.corner {
+  margin-top: 65px;
+  padding: 32px 22px;
+  text-align: center;
+  border: 1px solid #e5dfeb;
+  background: rgba(255,255,255,.7);
+  border-radius: 25px;
+}
+
+.corner h2 {
+  color: var(--plum);
+  font-size: 29px;
+}
+
+.corner-text {
+  color: #77717d;
+  line-height: 1.8;
+  font-size: 13px;
+  max-width: 520px;
+  margin: 0 auto 25px;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 550px;
+  margin: auto;
+}
+
+.memory {
+  background: #e8eee3;
+  border-radius: 15px;
+  padding: 18px 10px;
+}
+
+.memory:nth-child(even) { background: #eee7f3; }
+
+.memory span {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.memory strong {
+  display: block;
+  font-size: 12px;
+  color: var(--plum);
+}
+
+.memory small {
+  display: block;
+  margin-top: 5px;
+  color: #817a87;
+  font-size: 11px;
+}
+
+/* Letter popup */
+
+#letterModal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(48,40,57,.45);
+  backdrop-filter: blur(5px);
+}
+
+#letterModal.show { display: flex; }
+
+.modal-card {
+  position: relative;
+  width: 100%;
+  max-width: 620px;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 40px 34px;
+  border-radius: 25px;
+  background: var(--cream);
+  text-align: center;
+  animation: pop .3s ease;
+  scrollbar-width: thin;
+  scrollbar-color: #a9bea0 #edf1e8;
+}
+
+@keyframes pop {
+  from { opacity: 0; transform: scale(.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.close-btn {
+  position: absolute;
+  right: 17px;
+  top: 14px;
+  border: none;
+  background: transparent;
+  color: #82758d;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+#modalIcon { font-size: 36px; }
+
+#modalTitle {
+  color: var(--plum);
+  font-size: 30px;
+  margin: 15px 0;
+}
+
+#modalMessage {
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  color: #586454;
+  font-size: 14px;
+  line-height: 1.9;
+  text-align: left;
+}
+
+.modal-signature {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--purple);
+  margin-top: 25px;
+}
+
+footer {
+  text-align: center;
+  padding: 35px 10px 0;
+  color: #96909a;
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+@media(max-width: 650px) {
+  .modal-card { max-width: 100%; max-height: 90vh; padding: 35px 22px; }
+  main { padding: 20px 15px 45px; }
+  .letter-grid { grid-template-columns: repeat(2, 1fr); gap: 11px; }
+  .letter { min-height: 135px; }
+  header { padding-top: 35px; }
+}
+
+@media(min-width: 651px) and (max-width: 850px) {
+  .letter-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="floatingDecor"></div>
+
+<!-- WELCOME SCREEN -->
+<section id="welcome">
+  <div class="welcome-card">
+    <div class="flower">🌷💌🌿</div>
+    <p class="eyebrow">A little something for you</p>
+    <h1>Hi, Juju!</h1>
+    <p>
+      I made something for you.<br>
+      Nothing too fancy, just a little collection
+      of thoughts, reminders, and things I wanted
+      you to have.
+    </p>
+    <p>Ready to open it, Langga?</p>
+    <button class="primary-btn" onclick="enterWebsite()">
+      There's something for you 💜
+    </button>
+  </div>
+</section>
+
+<!-- MUSIC FILE: add your own music.mp3 beside index.html -->
+<audio id="backgroundMusic" src="music.mp3" loop preload="none"></audio>
+
+<main>
+
+<header>
+  <div class="header-flower">🌿 ✿ 💜 ✿ 🌿</div>
+  <p class="eyebrow">A collection of little letters</p>
+  <h1>A Little Something for Juju</h1>
+  <p>
+    20 little notes, written with you in mind.<br>
+    Open them whenever you feel like it.
+  </p>
+</header>
+
+<section class="progress-card">
+  <div class="progress-label">
+    <span>Letters discovered</span>
+    <strong id="progressText">0 / 20</strong>
+  </div>
+  <div class="progress-track">
+    <div id="progressBar"></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Your Little Letters</h2>
+  <p class="section-subtitle">
+    Pick an envelope. I hope one of these makes you smile.
+  </p>
+  <div class="letter-grid" id="letterGrid"></div>
+</section>
+
+<div class="action-row">
+  <button class="secondary-btn" onclick="randomLetter()">
+    🎲 Surprise me
+  </button>
+  <button class="secondary-btn" onclick="toggleMusic()" id="musicButton">
+    ♫ Play music
+  </button>
+</div>
+
+<!-- OUR LITTLE CORNER -->
+<section class="corner">
+  <div style="font-size:30px;">🌷 💜 🌿</div>
+  <h2>Our Little Corner</h2>
+  <p class="corner-text">
+    A little space for the beginning of something
+    that I hope we'll look back on someday and smile.
+    I'm glad our paths crossed, Langga.
+  </p>
+
+  <div class="memory-grid">
+    <div class="memory">
+      <span>📅</span>
+      <strong>October 25, 2026</strong>
+      <small>The day we started talking</small>
+    </div>
+    <div class="memory">
+      <span>💬</span>
+      <strong>Endless conversations</strong>
+      <small>One of my favorite things</small>
+    </div>
+    <div class="memory">
+      <span>🌱</span>
+      <strong>Getting to know you</strong>
+      <small>One day at a time</small>
+    </div>
+    <div class="memory">
+      <span>💌</span>
+      <strong>20 little letters</strong>
+      <small>Made especially for you</small>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Made with a little thought and a lot of care.<br>
+  For Juju, from someone who's happy to know you. 💜
+</footer>
+
+</main>
+
+<!-- LETTER POPUP -->
+<div id="letterModal" onclick="outsideClose(event)">
+  <div class="modal-card">
+    <button class="close-btn" onclick="closeLetter()">×</button>
+    <div id="modalIcon">💌</div>
+    <h2 id="modalTitle"></h2>
+    <p id="modalMessage"></p>
+    <div class="modal-signature">With care, always. 💜</div>
+    <button class="primary-btn" onclick="closeLetter()">Back to the letters</button>
+  </div>
+</div>
+
+<script>
+
+// ALL 20 LETTERS
+const notes = [
+  {
+    "title": "A Little Hello",
+    "icon": "💌",
+    "message": "Hi, you! Just a little hello kasi why not? HAHAHA. Langga, ya know I’m really glad our paths crossed. Sometimes, I still think about how we started talking, and now look at us? It’s nice knowing that somewhere along the way, our random convos turned into something we look forward to everyday. I know we’re still getting to know each other, and there’s still so much more to know about you. I hope you know that I appreciate having you hehehe"
+  },
+  {
+    "title": "A Little Confession",
+    "icon": "💗",
+    "message": "Hi, you! I'm not just happy because you like me back. I'm happy because I get to know you beyond the little crush I had. I get to hear your stories, learn about you, and appreciate all the little things that make you who you are. You are my fave notif, hehehe. I still get so kilig whenever your name pops up. It's funny how we've only been talking for a little over a week, pero parang ang tagal na kitang kilala. We talk so much, yet I never get tired of it. Everything just feels so natural with you, juju. I'm really glad I got the chance to know you beyond admiring you from afar. I hope we never run out of things to talk about."
+  },
+  {
+    "title": "My Favorite Part of the Day",
+    "icon": "🌷",
+    "message": "Hi, you! I hope you know how much I enjoy our little conversations. Honestly, talking to you has become the main thing I look forward to every day. It's funny lang kasi shempre we started sa gc, but eventually nag dm na hahaha thank you langga. It became my favorite routine. You have become my favorite part of the day. I hope you know that I look forward to having you around for a very, very long time. Ikaw ang favorite notif ko eh."
+  },
+  {
+    "title": "Things I Like About You",
+    "icon": "🌿",
+    "message": "Hi, you! I like the version of myself that gets to know you. I like how our conversations have slowly become part of my everyday life. I like how comfortable it feels to talk to you, how we can laugh over the most random things, and how we always have something to talk about. Di talaga nawawalan ng topic eh hahaha. \n\nJuju, I love how effortlessly you are yourself. You're not hard to love. I love your heart and the way you carry yourself. I hope you never feel like you have to be anything other than who you are because you're already more than enough just as you are.\n\nAnd syempre, I like you. Well, no. I love you. Ang sarap-sarap mong mahalin. I hope you never forget that."
+  },
+  {
+    "title": "There's Something About You",
+    "icon": "🪻",
+    "message": "Hi, you! I think one of my favorite things about you is that I never run out of reasons to like you. Everytime mag-uusap tayo and the more kita makikilala, mas naiinlove ako sayo eh. Langgaa, ano bang ginawa mo sakin? Hahaha. And you know what's funny? kasi even when we're not talking, I still catch myself thinking about you. Minsan nagda-daydream lang ako about you, tapos bigla na lang akong nakangiti mag-isa na parang ewan HAHAHA. You really have no idea what you do to me. Ang dami ko pang gustong malaman about you, langga. I hope I get to discover all those little things for a very, very long time. 💚 ahhhh I love youuu."
+  },
+  {
+    "title": "A Random Reminder",
+    "icon": "🌱",
+    "message": "Hi, you! I just want you to know that someone is genuinely happy to have you around. I hope you never underestimate how much your presence can mean, even without you doing anything special. I like having you around, I like hearing about your day, and I like learning new things about you. So ayun, don't forget that you're appreciated. Especially by this person writing this letter hehehe kilig nenemen ang langga ko"
+  },
+  {
+    "title": "Open When You're Smiling at Your Phone",
+    "icon": "😊",
+    "message": "HOYYYY, IKAW!\n\nBakit ka nakangiti diyan? May ka-chat ka bang cute? Ay, ako pala. HEHEHE. Alam mo, feeling ko may talent talaga ako sa pagpapangiti sa'yo. Happy pill yarn? Charot! HAHAHA.\n\nPero aminado naman ako, ikaw din ang reason kung bakit minsan nakangiti ako sa phone ko na parang sira. Isang notification mo lang, ayun na, good mood na agad ang person. Grabe ka naman, may pa-special effect ka pa sa araw ko. Anyway, enjoy your moment of being cute. Pero bawal masyadong ngumiti ha, baka ma-fall ka lalo. EME! HAHAHA. I hope I get to make you smile a lot more, langga. Mwamwa."
+  },
+  {
+    "title": "Open When You Want to Be Bothered",
+    "icon": "🤪",
+    "message": "LANGGAAAA! Wala ka bang ginagawa? Bored ka ba? Well, perfect! Nandito na ang favorite mong istorbo. HAHAHA. Message na ako daliii! Istorbohin na kita. Miss na rin kita eh. I miss my langgaa. I miss my baby so much huhuhu. Kawawa naman ako.\n\nBabyy, alam mo bang favorite person ko ikaw? Alam mo bang nauna ang itlog sa chicken? Alam mo ba kung bakit color blue ang sky? Alam mo bang ang isda hindi nauuhaw? Alam mo bang ang mga giraffe may mahabang leeg? Alam mo bang ang circle ay bilog? At alam mo bang ang tubig ay basa?\n\nOhhh, basa. HAHAHAHA. Baby naman, wala akong sinasabi ha. Ikaw ha, ang brain mo dyan. Haaays.\n\nPero last na talaga, alam mo bang mahal na mahal kita?"
+  },
+  {
+    "title": "Open When You Miss Me",
+    "icon": "💜",
+    "message": "Hi, you! If you're reading this because you miss me, well, that's cute. HAHAHA. Don’t worry, miss kitaa sobra. I miss you everyday, especially kapag sleep ka and we don’t talk na 🙁. I miss talking to you. Parang ang weird na kapag hindi tayo nag-uusap. Palagi na kita namimiss, langgaaa. I'm just really happy that we get to be part of each other's days. So ayun, sending you a little lambing from me! Hehehe salamat sa pag miss sakin ha? Ako na to e hehe"
+  },
+  {
+    "title": "A Conversation I Want to Have With You",
+    "icon": "💬",
+    "message": "You know what? I think one of the things I'd really enjoy is having those long conversations with you. Yung tipong we start talking about something random and suddenly, hours have passed. I want to hear about your day, your childhood stories, the things you're passionate about, and even the little details you don't usually share with others. I want to get to know you, langga. Ang totoong ikaw.\n\nI want us to be comfortable talking about anything. Kahit nonsense lang or something serious. And honestly, I'm so happy that we're already doing that. I really appreciate how you share little pieces of yourself with me. Yung mga random kwento mo, little updates, and even the simplest things about your day. I hope you know that I genuinely enjoy listening to you and getting to know you through those conversations. You don't always have to think of something interesting to say. You can tell me whatever's on your mind. I'd be happy to listen hehe\n\nHopefully, someday, we get to do all of that in person. For now, I'm happy with every little kwento you share with me."
+  },
+  {
+    "title": "An Afternoon With You",
+    "icon": "☕",
+    "message": "Hi, you! Alam mo, I'd love to spend a slow afternoon with you someday. Yung walang kailangang madaliin and we can just talk about anything and everything. Maybe get something to eat, magkakape, talk, and feel ko we’ll just tawa ng tawa hahaha. I don't think we need an elaborate plan to have a good time. Basta kasama kita, I think I'd enjoy every little moment with you, langga. Ang simple lang, pero ang saya siguro.\n\nI mean, andami kong daydream about us, you know? HAHAHA. But yes, meron ding mga seryoso like this. Hehehe Aaaahh I’m so excited."
+  },
+  {
+    "title": "Even on the Boring Days",
+    "icon": "☀️",
+    "message": "Honestly, wala nang boring sa araw ko kasi nandiyan ka na. Even the simplest days feel a little more special knowing I get to talk to you. Kahit walang ganap, basta may update from you at nakakausap kita, happy na ako. You don't even have to do anything special, langga. Ikaw lang, sapat na. Sobrang sapat na."
+  },
+  {
+    "title": "On Days That Feel Heavy",
+    "icon": "☁️",
+    "message": "Hi, you! If things feel a little heavy today, I hope this little letter gives you some comfort. I may not always know what's going on in your mind, but I hope you never feel like you have to pretend that everything is okay. You can take your time, baby. You can have your quiet moments, and just breathe. I hope you know that you deserve patience, understanding, and all the good things life has to offer. Nandito lang ako baby ha?"
+  },
+  {
+    "title": "When You’re Overthinking",
+    "icon": "🦋",
+    "message": "Hi, you! I wish I could make you see things a little more gently whenever you're overthinking. I hope you don't spend too much time worrying about things that haven't even happened. You deserve to enjoy the good moments without having to wonder when they'll end.\n\nYou don't have to be perfect all the time, langga. You can have your doubts, your worries, and your not-so-good days. It's okay not to be okay, my babyyy. But I want you to know that if there's ever something bothering you, nandito lang ako, ha? I'll always be willing to listen to everything you have to say. Kahit ano pa yan, kahit paulit-ulit. You can tell me what's on your mind. I can be your safe space, langga. I'm here."
+  },
+  {
+    "title": "Open When You Can't Sleep",
+    "icon": "🌙",
+    "message": "Ate ko, alas-dose na. Anong ganap? HAHAHAHA. Bakit gising pa ang prinsesa? Is the brain brainstorming problems that don't even exist? Anyway, behave ka muna diyan and get some sleep. Don't forget to drink some water and make yourself comfortable. Drink water ka din kasi yan lagi mo sinasabi sakin hehehe. Wala nang negotiations. Goodnight sa baby kong mejo pasaway minsan. I love youuu! Huuug kita so soo tight."
+  },
+  {
+    "title": "Never Settle for Less",
+    "icon": "🌼",
+    "message": "Hi, you! If there's one thing I hope you'll always remember, it's that you deserve the very best. Never make yourself feel like you have to settle for less just to keep someone around. Langga ko, you deserve to be appreciated, understood, and cared for without having to ask for the bare minimum. I hope life gives you all the happiness you've been wishing for. I've told you this before, but I really hope you could see yourself through my eyes, para makita mo yung value mo. You are very, very special, Juju! And I hope I get to remind you of that in my own little ways, every single day."
+  },
+  {
+    "title": "Little Wishes for You",
+    "icon": "✨",
+    "message": "Hi, you! I hope life treats you gently. Sana matupad lahat ng little wishes mo, even the ones you don't usually tell anyone about. I hope you get more reasons to smile, more moments to be proud of yourself, and more days where you feel genuinely happy. And I hope that along the way, I get to be part of some of those happy moments. I want to see you achieve all the things you've been working and wishing for. I'll always be cheering you on, Juju. Ako ang number 1 cheerleader mo, always! 💚"
+  },
+  {
+    "title": "If I Could Give You One Thing",
+    "icon": "🎁",
+    "message": "If I could give you one thing, it would be the reminder that you don't have to go through everything on your own anymore. You can tell me anything, even the things you can't quite put into words. And langga, from now on, you have me, okay? You don't have to keep everything to yourself anymore. It's you and me now. We'll figure things out together, one day at a time. I may not always have the right words, but I'll always be willing to listen. Gusto ko lang na lagi mong maalala na nandito na ako. You don't have to face everything alone anymore. You've got me, langga. 💜"
+  },
+  {
+    "title": "I'm Glad It's You",
+    "icon": "💚",
+    "message": "Hi, you! I don't think I say this enough, but I'm really, really glad it's you. Andaming tao ang nandun na pwede nating makilala at makausap, but NO. Tayo ang pinagtagpo. I'm glad our paths crossed and that we somehow went from being strangers to this. Hahaha, ano ba tayo, baby? Hmmm. Langga, thank you for letting me into your life ha. Thank you for sharing your life with me.\n\nLangga, I don't know what the future holds, but I do know that I'm happy I met someone na matagal ko nang hinahanap. I want to experience life with you. Gusto na kitang makasama habang buhay. Pangmatagalan na to ha. My heart is happy because it’s you."
+  },
+  {
+    "title": "One Last Thing",
+    "icon": "🌷",
+    "message": "Hiiii, langga!\n\nWell, look at you! You've made it through all the little letters. hehehe\n\nI know most of these letters were just a bunch of random things. I was writing all these with you in mind. I just wanted to give you little pieces of my thoughts, my kakulitan coz I know happy pill mko diba? hahahaha and all the things I sometimes don't get to say.\n\nI guess I just wanted to make something special for you. Nothing too grand, just a little collection of things that reminded me of you or things I wanted to share with you. And if there's one thing I hope you take away from all of this, it's that I'm really happy I met you. I hope we get to make so many memories together, have countless random conversations, and keep adding to our ever-growing list of plans.\n\nSo, that's it! You've reached the last letter. For now, at least. Hehehe.\n\nI love you so much, my Juju. Thank you for being here. 💚"
+  }
+];
+
+const STORAGE_KEY = "juju_letters_opened_v2";
+
+// The final letter unlocks only after every letter from 1 to 19 is opened.
+function allFirst19Opened() {
+  return notes.slice(0, 19).every((note, index) => opened.has(index));
+}
+
+let opened = new Set();
+
+try {
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  if (Array.isArray(saved)) {
+    opened = new Set(saved.filter(
+      n => Number.isInteger(n) && n >= 0 && n < 20
+    ));
+  }
+} catch (e) {
+  opened = new Set();
+}
+
+let currentNote = null;
+let musicPlaying = false;
+
+// SAVE PROGRESS
+function saveProgress() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify([...opened]));
+}
+
+// BUILD LETTER GRID
+function renderLetters() {
+  const grid = document.getElementById("letterGrid");
+  grid.innerHTML = "";
+
+  notes.forEach((note, index) => {
+    const isFinal = index === 19;
+    const unlocked = !isFinal || allFirst19Opened();
+    const isOpened = opened.has(index);
+
+    const button = document.createElement("button");
+    button.className = "letter";
+    button.type = "button";
+
+    if (isOpened) button.classList.add("opened");
+    if (!unlocked) button.classList.add("locked");
+
+    const icon = document.createElement("span");
+    icon.className = "letter-icon";
+    icon.textContent = !unlocked ? "🔒" : note.icon;
+
+    const number = document.createElement("span");
+    number.className = "letter-number";
+    number.textContent = `LETTER ${String(index + 1).padStart(2, "0")}`;
+
+    const title = document.createElement("span");
+    title.className = "letter-title";
+    title.textContent = !unlocked ? "A little secret..." : note.title;
+
+    button.append(icon, number, title);
+
+    button.addEventListener("click", () => {
+      if (!unlocked) {
+        alert("A little more exploring first! Open the first 19 letters to unlock this one. 💜");
+        return;
+      }
+      openLetter(index);
+    });
+
+    grid.appendChild(button);
+  });
+
+  updateProgress();
+}
+
+// UPDATE COUNTER
+function updateProgress() {
+  const count = opened.size;
+  document.getElementById("progressText").textContent =
+    `${count} / 20`;
+
+  document.getElementById("progressBar").style.width =
+    `${count / 20 * 100}%`;
+}
+
+// OPEN A LETTER
+function openLetter(index) {
+  const note = notes[index];
+
+  if (index === 19 && !allFirst19Opened()) {
+    alert("One Last Thing is waiting for you. Open the first 19 letters to unlock it. 💚");
+    return;
+  }
+
+  currentNote = index;
+  opened.add(index);
+  saveProgress();
+  renderLetters();
+
+  document.getElementById("modalIcon").textContent = note.icon;
+  document.getElementById("modalTitle").textContent = note.title;
+  document.getElementById("modalMessage").textContent = note.message;
+  document.getElementById("letterModal").classList.add("show");
+}
+
+// CLOSE POPUP
+function closeLetter() {
+  document.getElementById("letterModal").classList.remove("show");
+  currentNote = null;
+}
+
+function outsideClose(event) {
+  if (event.target.id === "letterModal") closeLetter();
+}
+
+// RANDOM UNOPENED LETTER
+function randomLetter() {
+  let available = notes
+    .map((note, index) => index)
+    .filter(index => !opened.has(index) && (index !== 19 || allFirst19Opened()));
+
+  if (available.length === 0) {
+    alert("You've opened all 20 letters! Thank you for reading them, Juju. 💜");
+    return;
+  }
+
+  const randomIndex = available[
+    Math.floor(Math.random() * available.length)
+  ];
+
+  openLetter(randomIndex);
+}
+
+// WELCOME ANIMATION
+function enterWebsite() {
+  const welcome = document.getElementById("welcome");
+  welcome.classList.add("fade");
+
+  setTimeout(() => {
+    welcome.classList.add("hidden");
+  }, 850);
+
+  startMusic();
+}
+
+// MUSIC
+async function startMusic() {
+  const audio = document.getElementById("backgroundMusic");
+  try {
+    await audio.play();
+    musicPlaying = true;
+    document.getElementById("musicButton").textContent = "♫ Pause music";
+  } catch (error) {
+    musicPlaying = false;
+    document.getElementById("musicButton").textContent = "♫ Play music";
+  }
+}
+
+async function toggleMusic() {
+  const audio = document.getElementById("backgroundMusic");
+
+  if (musicPlaying) {
+    audio.pause();
+    musicPlaying = false;
+    document.getElementById("musicButton").textContent = "♫ Play music";
+  } else {
+    await startMusic();
+  }
+}
+
+// FLOATING DECORATIONS
+function createDecor() {
+  const container = document.getElementById("floatingDecor");
+  const symbols = ["💜", "🌸", "✿", "🌿", "♡", "🪻"];
+
+  for (let i = 0; i < 17; i++) {
+    const item = document.createElement("span");
+    item.className = "float";
+    item.textContent = symbols[
+      Math.floor(Math.random() * symbols.length)
+    ];
+
+    item.style.left = Math.random() * 100 + "%";
+    item.style.fontSize = (12 + Math.random() * 15) + "px";
+    item.style.animationDuration = (12 + Math.random() * 13) + "s";
+    item.style.animationDelay = (-Math.random() * 20) + "s";
+
+    container.appendChild(item);
+  }
+}
+
+// START
+createDecor();
+renderLetters();
+
+</script>
+</body>
+</html>
