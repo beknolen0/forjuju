@@ -254,7 +254,9 @@ header p {
 
 .letter:nth-child(4n+2),
 .letter:nth-child(4n+4) {
-  background: #f3f4eb;
+  background: #fffdf6;
+  border: 1px solid #A9BEA0;
+  box-shadow: 0 5px 15 px rgba(50, 70, 45, 0.12);
 }
 
 .letter:hover {
@@ -497,7 +499,7 @@ footer {
     </p>
     <p>Ready to open it, Langga?</p>
     <button class="primary-btn" onclick="enterWebsite()">
-      There's something for you 💜
+      There's something for you 🤍
     </button>
   </div>
 </section>
@@ -557,7 +559,7 @@ footer {
   <div class="memory-grid">
     <div class="memory">
       <span>📅</span>
-      <strong>October 25, 2026</strong>
+      <strong>October 26, 2026</strong>
       <small>The day we started talking</small>
     </div>
     <div class="memory">
@@ -592,7 +594,7 @@ footer {
     <div id="modalIcon">💌</div>
     <h2 id="modalTitle"></h2>
     <p id="modalMessage"></p>
-    <div class="modal-signature">With care, always. 💜</div>
+    <div class="modal-signature">With love, always. 🤍</div>
     <button class="primary-btn" onclick="closeLetter()">Back to the letters</button>
   </div>
 </div>
@@ -619,12 +621,12 @@ const notes = [
   {
     "title": "Things I Like About You",
     "icon": "🌿",
-    "message": "Hi, you! I like the version of myself that gets to know you. I like how our conversations have slowly become part of my everyday life. I like how comfortable it feels to talk to you, how we can laugh over the most random things, and how we always have something to talk about. Di talaga nawawalan ng topic eh hahaha. \n\nJuju, I love how effortlessly you are yourself. You're not hard to love. I love your heart and the way you carry yourself. I hope you never feel like you have to be anything other than who you are because you're already more than enough just as you are.\n\nAnd syempre, I like you. Well, no. I love you. Ang sarap-sarap mong mahalin. I hope you never forget that."
+    "message": "Hi, you! I like the version of myself that gets to know you. I like how our conversations have slowly become part of my everyday life. I like how comfortable it feels to talk to you, how we can laugh over the most random things, and how we always have something to talk about. Di talaga nawawalan ng topic eh hahaha. Juju, I love how effortlessly you are yourself. You're not hard to love. I love your heart and the way you carry yourself. I hope you never feel like you have to be anything other than who you are because you're already more than enough just as you are. And syempre, I like you. Well, no. I love you. Ang sarap-sarap mong mahalin. I hope you never forget that."
   },
   {
     "title": "There's Something About You",
     "icon": "🪻",
-    "message": "Hi, you! I think one of my favorite things about you is that I never run out of reasons to like you. Everytime mag-uusap tayo and the more kita makikilala, mas naiinlove ako sayo eh. Langgaa, ano bang ginawa mo sakin? Hahaha. And you know what's funny? kasi even when we're not talking, I still catch myself thinking about you. Minsan nagda-daydream lang ako about you, tapos bigla na lang akong nakangiti mag-isa na parang ewan HAHAHA. You really have no idea what you do to me. Ang dami ko pang gustong malaman about you, langga. I hope I get to discover all those little things for a very, very long time. 💚 ahhhh I love youuu."
+    "message": "Hi, you! I think one of my favorite things about you is that I never run out of reasons to like you. Everytime mag-uusap tayo and the more kita makikilala, mas naiinlove ako sayo eh. Langgaa, ano bang ginawa mo sakin? Hahaha. And you know what's funny? kasi even when we're not talking, I still catch myself thinking about you. Minsan nagda-daydream lang ako about you, tapos bigla na lang akong nakangiti mag-isa na parang ewan HAHAHA. You really have no idea what you do to me. Ang dami ko pang gustong malaman about you, langga. I hope I get to discover all those little things for a very, very long time. ahhhh I love youuu."
   },
   {
     "title": "A Random Reminder",
@@ -634,12 +636,12 @@ const notes = [
   {
     "title": "Open When You're Smiling at Your Phone",
     "icon": "😊",
-    "message": "HOYYYY, IKAW!\n\nBakit ka nakangiti diyan? May ka-chat ka bang cute? Ay, ako pala. HEHEHE. Alam mo, feeling ko may talent talaga ako sa pagpapangiti sa'yo. Happy pill yarn? Charot! HAHAHA.\n\nPero aminado naman ako, ikaw din ang reason kung bakit minsan nakangiti ako sa phone ko na parang sira. Isang notification mo lang, ayun na, good mood na agad ang person. Grabe ka naman, may pa-special effect ka pa sa araw ko. Anyway, enjoy your moment of being cute. Pero bawal masyadong ngumiti ha, baka ma-fall ka lalo. EME! HAHAHA. I hope I get to make you smile a lot more, langga. Mwamwa."
+    "message": "Hueey, langgaaa! Bakit ka nakangiti diyan? May ka-chat ka bang cute? Ay, ako pala. HEHEHE. Alam mo, feeling ko may talent talaga ako sa pagpapangiti sa'yo. Happy pill yarn? Charot! HAHAHA. Pero aminado naman ako, ikaw din ang reason kung bakit minsan nakangiti ako sa phone ko na parang sira. Isang notification mo lang, ayun na, good mood na agad ang person. Grabe ka naman, may pa-special effect ka pa sa araw ko. Anyway, enjoy your moment of being cute. Pero bawal masyadong ngumiti ha, baka ma-fall ka lalo. EME! HAHAHA. I hope I get to make you smile a lot more, langga. Mwamwa."
   },
   {
     "title": "Open When You Want to Be Bothered",
     "icon": "🤪",
-    "message": "LANGGAAAA! Wala ka bang ginagawa? Bored ka ba? Well, perfect! Nandito na ang favorite mong istorbo. HAHAHA. Message na ako daliii! Istorbohin na kita. Miss na rin kita eh. I miss my langgaa. I miss my baby so much huhuhu. Kawawa naman ako.\n\nBabyy, alam mo bang favorite person ko ikaw? Alam mo bang nauna ang itlog sa chicken? Alam mo ba kung bakit color blue ang sky? Alam mo bang ang isda hindi nauuhaw? Alam mo bang ang mga giraffe may mahabang leeg? Alam mo bang ang circle ay bilog? At alam mo bang ang tubig ay basa?\n\nOhhh, basa. HAHAHAHA. Baby naman, wala akong sinasabi ha. Ikaw ha, ang brain mo dyan. Haaays.\n\nPero last na talaga, alam mo bang mahal na mahal kita?"
+    "message": "LANGGAAAA! Wala ka bang ginagawa? Bored ka ba? Well, perfect! Nandito na ang favorite mong istorbo. HAHAHA. Message na ako daliii! Istorbohin na kita. Miss na rin kita eh. I miss my langgaa. I miss my baby so much huhuhu. Kawawa naman ako. \nBabyy, alam mo bang favorite person ko ikaw? Alam mo bang nauna ang itlog sa chicken? Alam mo ba kung bakit color blue ang sky? Alam mo bang ang isda hindi nauuhaw? Alam mo bang ang mga giraffe may mahabang leeg? Alam mo bang ang circle ay bilog? At alam mo bang ang tubig ay basa?\n Ohhh, basa. HAHAHAHA. Baby naman, wala akong sinasabi ha. Ikaw ha, ang brain mo dyan. Haaays.\n Pero last na talaga, alam mo bang mahal na mahal kita?"
   },
   {
     "title": "Open When You Miss Me",
@@ -684,22 +686,22 @@ const notes = [
   {
     "title": "Little Wishes for You",
     "icon": "✨",
-    "message": "Hi, you! I hope life treats you gently. Sana matupad lahat ng little wishes mo, even the ones you don't usually tell anyone about. I hope you get more reasons to smile, more moments to be proud of yourself, and more days where you feel genuinely happy. And I hope that along the way, I get to be part of some of those happy moments. I want to see you achieve all the things you've been working and wishing for. I'll always be cheering you on, Juju. Ako ang number 1 cheerleader mo, always! 💚"
+    "message": "Hi, you! I hope life treats you gently. Sana matupad lahat ng little wishes mo, even the ones you don't usually tell anyone about. I hope you get more reasons to smile, more moments to be proud of yourself, and more days where you feel genuinely happy. And I hope that along the way, I get to be part of some of those happy moments. I want to see you achieve all the things you've been working and wishing for. I'll always be cheering you on, Juju. Ako ang number 1 cheerleader mo, always! 🤍"
   },
   {
     "title": "If I Could Give You One Thing",
     "icon": "🎁",
-    "message": "If I could give you one thing, it would be the reminder that you don't have to go through everything on your own anymore. You can tell me anything, even the things you can't quite put into words. And langga, from now on, you have me, okay? You don't have to keep everything to yourself anymore. It's you and me now. We'll figure things out together, one day at a time. I may not always have the right words, but I'll always be willing to listen. Gusto ko lang na lagi mong maalala na nandito na ako. You don't have to face everything alone anymore. You've got me, langga. 💜"
+    "message": "If I could give you one thing, it would be the reminder that you don't have to go through everything on your own anymore. You can tell me anything, even the things you can't quite put into words. And langga, from now on, you have me, okay? You don't have to keep everything to yourself anymore. It's you and me now. We'll figure things out together, one day at a time. I may not always have the right words, but I'll always be willing to listen. Gusto ko lang na lagi mong maalala na nandito na ako. You don't have to face everything alone anymore. You've got me, langga. 🤍"
   },
   {
     "title": "I'm Glad It's You",
     "icon": "💚",
-    "message": "Hi, you! I don't think I say this enough, but I'm really, really glad it's you. Andaming tao ang nandun na pwede nating makilala at makausap, but NO. Tayo ang pinagtagpo. I'm glad our paths crossed and that we somehow went from being strangers to this. Hahaha, ano ba tayo, baby? Hmmm. Langga, thank you for letting me into your life ha. Thank you for sharing your life with me.\n\nLangga, I don't know what the future holds, but I do know that I'm happy I met someone na matagal ko nang hinahanap. I want to experience life with you. Gusto na kitang makasama habang buhay. Pangmatagalan na to ha. My heart is happy because it’s you."
+    "message": "Hi, you! I don't think I say this enough, but I'm really, really glad it's you. Andaming tao ang nandun na pwede nating makilala at makausap, but NO. Tayo ang pinagtagpo. I'm glad our paths crossed and that we somehow went from being strangers to this. Hahaha, ano ba tayo, baby? Hmmm. Langga, thank you for letting me into your life ha. Thank you for sharing your life with me.\nLangga, I don't know what the future holds, but I do know that I'm happy I met someone na matagal ko nang hinahanap. I want to experience life with you. Gusto na kitang makasama habang buhay. Pangmatagalan na to ha. My heart is happy because it’s you."
   },
   {
     "title": "One Last Thing",
     "icon": "🌷",
-    "message": "Hiiii, langga!\n\nWell, look at you! You've made it through all the little letters. hehehe\n\nI know most of these letters were just a bunch of random things. I was writing all these with you in mind. I just wanted to give you little pieces of my thoughts, my kakulitan coz I know happy pill mko diba? hahahaha and all the things I sometimes don't get to say.\n\nI guess I just wanted to make something special for you. Nothing too grand, just a little collection of things that reminded me of you or things I wanted to share with you. And if there's one thing I hope you take away from all of this, it's that I'm really happy I met you. I hope we get to make so many memories together, have countless random conversations, and keep adding to our ever-growing list of plans.\n\nSo, that's it! You've reached the last letter. For now, at least. Hehehe.\n\nI love you so much, my Juju. Thank you for being here. 💚"
+    "message": "Hiiii, langga!\nWell, look at you! You've made it through all the little letters. hehehe\nI know most of these letters were just a bunch of random things. I was writing all these with you in mind. I just wanted to give you little pieces of my thoughts, my kakulitan coz I know happy pill mko diba? hahahaha and all the things I sometimes don't get to say.\nI guess I just wanted to make something special for you. Nothing too grand, just a little collection of things that reminded me of you or things I wanted to share with you. And if there's one thing I hope you take away from all of this, it's that I'm really happy I met you. I hope we get to make so many memories together, have countless random conversations, and keep adding to our ever-growing list of plans.\nSo, that's it! You've reached the last letter. For now, at least. Hehehe.\nI love you so much, my Juju. Thank you for being here. 🤍"
   }
 ];
 
